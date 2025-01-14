@@ -1,0 +1,17 @@
+<!--TaskFlow-Frontend\src\app\core\navbar\navbar.component.html-->
+<mat-toolbar color="primary">
+  <span>TaskFlow</span>
+  <span class="spacer"></span>
+  <ng-container *ngIf="isAuthenticated; else guestLinks">
+    <button mat-icon-button routerLink="/tasks" matTooltip="View Tasks">
+      <mat-icon>assignment</mat-icon>
+    </button>
+    <button mat-icon-button (click)="logout()" matTooltip="Logout">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </ng-container>
+  <ng-template #guestLinks>
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/register">Register</button>
+  </ng-template>
+</mat-toolbar>

@@ -1,0 +1,8 @@
+/*TaskFlow-Frontend\src\app\core\navbar\navbar.component.css*/
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar button {
+  margin-right: 8px;
+}

@@ -1,0 +1,32 @@
+<!--TaskFlow-Frontend\src\app\task\task-form\task-form.component.html-->
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ task ? 'Edit Task' : 'Create Task' }}</mat-card-title>
+      <button mat-icon-button (click)="closeDialog()" matTooltip="Close">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" />
+          <mat-error *ngIf="taskForm.get('title')?.invalid">Title is required.</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+          <mat-error *ngIf="taskForm.get('description')?.invalid">Description is required.</mat-error>
+        </mat-form-field>
+  
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+            {{ task ? 'Update' : 'Create' }}
+          </button>
+          <button mat-button color="warn" type="button" (click)="closeDialog()">Cancel</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  
